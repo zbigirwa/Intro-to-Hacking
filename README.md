@@ -78,8 +78,6 @@ Then restart your nameserver program. Now any DNS queries for domains ending in 
 Start iodined on your server. The first argument is the IP address inside the tunnel, which can be from any range that you don't use yet. (for example 192.168.99.1), and the second argument is the assigned domain (in this case t1.mydomain.com). Using the flag -f, we can keep iodined running in the foreground, which helps when testing. 
 Iodined will open a virtual interface ("tun device"), and will also start listening for DNS queries on UDP port 53. Using the -P flag, we would enter a password for our tunnel after the server is started.
 
- 
-
 Now everything is ready for the client.
 
 Client-side
