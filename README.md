@@ -4,7 +4,7 @@ DNS Tunnelling with Iodine
 What is a DNS?
 A DNS (Domain Name System) is a naming system/ phone book that converts human-readable domain names to their individualized IP addresses. For example, if you type the command "nslookup www.whisperlabs.com", you should be able to query your DNS and get specific IP address. 
 
-
+ ![image](https://user-images.githubusercontent.com/71352982/111092997-b270ce00-8505-11eb-80b4-050dc16af529.png)
 
 What is DNS Tunnelling?
 DNS tunneling involves using the DNS protocol to send data to a remote machine or another non-DNS server.
@@ -77,6 +77,9 @@ Then restart your nameserver program. Now any DNS queries for domains ending in 
 
 Start iodined on your server. The first argument is the IP address inside the tunnel, which can be from any range that you don't use yet. (for example 192.168.99.1), and the second argument is the assigned domain (in this case t1.mydomain.com). Using the flag -f, we can keep iodined running in the foreground, which helps when testing. 
 Iodined will open a virtual interface ("tun device"), and will also start listening for DNS queries on UDP port 53. Using the -P flag, we would enter a password for our tunnel after the server is started.
+
+![image](https://user-images.githubusercontent.com/71352982/111093057-e21fd600-8505-11eb-827c-314d8d7e8408.png)
+
 Now everything is ready for the client.
 
 Client-side
@@ -85,7 +88,14 @@ The first is the local relaying DNS server (optional).
 If you don't specify the first argument, the system's current DNS setting will be used. 
 The second is the domain you used (t1.mydomain.com) 
 The client's tunnel interface will then get an IP address close to the Ip address of the server and a suitable Maximum Transmission Unit(MTU). 
-Enter the same password that was used on the server either as a command-line option or after the client has started. Using the -f flag you can keep the iodine client running in the foreground. 
+Enter the same password that was used on the server either as a command-line option or after the client has started. Using the -f flag you can keep the iodine client running in the foreground.
+This should look like this:
+
+ 
+![image](https://user-images.githubusercontent.com/71352982/111093080-f8c62d00-8505-11eb-8205-d87ff18fe756.png)
+
+
+
 After doing this, you should be able to ping the IP address from either end of the tunnel (the server or the client.) 
 
 
